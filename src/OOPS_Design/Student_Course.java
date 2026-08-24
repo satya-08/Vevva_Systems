@@ -44,8 +44,8 @@ public class Student_Course {
 			    new Students(504, "Teja", "teja@gmail.com", 84),
 			    new Students(505, "Deepak", "deepak@gmail.com", 71)
 			)));
-//		  getstudentsbyDept("CAI");
-//		  gethighestmarksoverall();
+		  getstudentsbyDept("CAI");
+		  gethighestmarksoverall();
 		  gethighestmarkseachdept();
 	}
 	private static void gethighestmarkseachdept() {
