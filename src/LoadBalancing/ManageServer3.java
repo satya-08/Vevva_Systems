@@ -1,7 +1,12 @@
 package LoadBalancing;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class ManageServer3 {
 	public static void main(String[] args) {
@@ -19,6 +24,12 @@ public class ManageServer3 {
 			}
 			servers.add(list);
 		}
+		
+		ScheduledExecutorService schedular=Executors.newScheduledThreadPool(1);
+		int[] count= {0};
+		//scheduleAtFixedRate(task, initialDelay, period, timeUnit)
+		schedular.scheduleAtFixedRate(()->{connChecker(servers,count[0]);count[0]++;},0,1,TimeUnit.MINUTES);
+		
 		while(true){
 			System.out.println("Enter\n1.Add PORT to new server\n2.End");
 			int m=sc.nextInt();
@@ -39,7 +50,14 @@ public class ManageServer3 {
 				ArrayList<int[]> list=servers.get(index);
 				list.add(port);
 				servers.set(index, list);
-				System.out.println(servers.get(index).toString());
+				System.out.println("Status of Each port");
+				for(int i=0;i<servers.size();i++) {
+					System.out.println("Server "+i+" :");
+					for(int[] arr:servers.get(i)) {
+						System.out.println(Arrays.toString(arr));
+					}
+					System.out.println();
+				}
 				
 			case 2:
 				break;
@@ -47,6 +65,21 @@ public class ManageServer3 {
 				break;
 			}
 	}
+	}
+
+	private static void connChecker(ArrayList<ArrayList<int[]>> servers, int currentTime) {
+		for(int i=0;i<servers.size();i++) {
+			int index=0;
+			ArrayList<int[]> list=servers.get(i);
+			while(index<list.size()) {
+				int[] ans=list.get(index);
+				if(ans[1]<currentTime) {
+					list.remove(index);
+				}else 
+					index++;
+			}
+			servers.set(i, list);
+		}
 	}
 
 }
