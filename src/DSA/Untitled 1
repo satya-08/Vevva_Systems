@@ -1,0 +1,64 @@
+Given an input string which contains Id's and Names of different products 
+Ex: Id : 101, Name : Trial_A ,Id : 2, Name : Trail_B .....
+nowow extract the parameters and their values print them in the form of records 
+where each record contains Id, Id value Name, Name value
+
+I/p : String str="Id : 101, Name : Trial_A ,Id : 2, Name : Trail_B ....."
+o/p: [Id:101,Name:Trail_A]
+     [Id:102,Name:Trail_B]  or [101,Trail_A]
+     
+     
+2. Count unique characters of all substrings of given string
+
+Ex: str="ABC"  substrings(A-1,B-1,C-1,AB-2,BC-2,ABC-3)
+    o/p:10 
+    str="ABAB"  o/p: 12 (A-1,B-1,A-1,B-1,..)
+    TIME COMPLEXITY :O(n)
+    
+    LeetCode :https://leetcode.com/problems/count-unique-characters-of-all-substrings-of-a-given-string/description/
+    
+
+SET-2:
+-----------------------------
+
+1. Given a string that represents mathematical infix expression compute the value of the equation
+  Ex: str="3+(4*5)-2  o/p: 21
+      str="5*4+3*2"   o/p:26
+  
+2.Given an unsorted array of integer return the length of longest cognitive elements
+  Ex [100,4,200,1,3,2] o/p: 4-->(1,2,3,4)
+     [0,3,7,2,5,8,4,6,0,1]  o/p: 9 (0,1,2,3,4,5,6,7,8)
+     
+  Leetcode :https://leetcode.com/problems/longest-consecutive-sequence/
+  
+
+3. Str="abc"  Str="hello"
+  o/p: 3    o/p: 
+       a
+       b
+       c
+4. You are given an integer array you can choose one element index and remove element after removing element index of elemnts may change 
+
+
+5. An array isfair if sum of odd index values is equal sum of even index values nOw return number of indexes could you choose so that after removal the array is fair
+ Ex : 2164-> array remove 1 then sum(even indexes)=sum(odd indexes) o/p: 1 
+      111-> o/p:3
+      
+Consider following table :
+Login_Details:
+    login_id
+    user_name
+    login_date
+ 
+ 1. Find and retrive all users who login consecutive dates,consecutive times.
+ 
+ 
+ 4.consider following table monthly_sales
+
+month  int 
+year   int 
+total_sales  decimal(10,2)
+
+now caluculate 3 month moving average of sales
+
+5.consider find missing number in the sequence of numbers in the above table
