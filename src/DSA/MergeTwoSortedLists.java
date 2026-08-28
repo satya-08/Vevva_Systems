@@ -1,42 +1,10 @@
 package DSA;
 
 import java.util.Scanner;
-
-class ListNode{
-	int data;
-	ListNode next;
-	ListNode(int data){
-		this.data=data;
-		this.next=null;
-	}
-}
-
+import DSA.ListNode;
 public class MergeTwoSortedLists {
-	
-	public static ListNode createList(int[] arr) {
-		ListNode head=new ListNode(arr[0]);
-		ListNode temp=head;
-		for(int i=1;i<arr.length;i++) {
-			ListNode newnode=new ListNode(arr[i]);
-			temp.next=newnode;
-			temp=temp.next;
-		}
-		return head;
-	}
-	
-	public static void displayList(ListNode head) {
-			ListNode temp=head;
-			System.out.print("List values: [ ");
-			while(temp!=null) {
-				System.out.print(temp.data);
-				if(temp.next!=null)
-				System.out.print(" -> ");
-				temp=temp.next;
-			}
-			System.out.print(" ]");
-		}
-
 	public static void main(String[] args) {
+		ListNode list=new ListNode();
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter size of the list 1:");
 		int n=scanner.nextInt();
@@ -52,15 +20,13 @@ public class MergeTwoSortedLists {
 		for(int i=0;i<m;i++) {
 			arr2[i]=scanner.nextInt();
 		}
-		ListNode list1=createList(arr1);
-		ListNode list2=createList(arr2);
+		ListNode list1=list.createList(arr1);
+		ListNode list2=list.createList(arr2);
 		
 		ListNode mergedList=mergeList(list1,list2);
-		displayList(mergedList);
+		list.displayList(mergedList);
 	}
-
 	
-
 	private static ListNode mergeList(ListNode list1, ListNode list2) {
 		ListNode dummy=new ListNode(-1);
 		ListNode temp=dummy;
