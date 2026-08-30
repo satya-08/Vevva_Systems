@@ -83,4 +83,35 @@ public class AdjacencyMatrix{
 						dfsHelper(res, visited, i);
 			return res;
 		}
-	}
+		
+		// DFS without Recursion and start vertex
+		public ArrayList<Integer> dfsiteration(){
+			ArrayList<Integer> res=new ArrayList<>();
+			boolean[] visited=new boolean[n];
+			Stack<Integer> stack=new Stack<>();
+			stack.push(0);
+			visited[0]=true;
+			while(!stack.isEmpty()) {
+				int ele=stack.pop();
+				res.add(ele);
+				for(int i=0;i<n;i++) {
+					if(mat[ele][i]==1&&!visited[i]) {
+						stack.push(i);
+						visited[i]=true;
+					}
+				}
+			}
+			return res;		
+		}
+		
+		
+		
+		
+		// =========================================
+		//   BFS 
+		// =========================================
+		
+		public void bfsrecursion(int s,boolean[] visited){
+			
+		}
+}
